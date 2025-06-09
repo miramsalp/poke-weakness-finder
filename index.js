@@ -11,6 +11,22 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 })
 
+app.post("/get", async (req, res) => {
+    console.log(req.body.pokemonName);
+    const pokeName = req.body.pokemonName;
+    try {
+        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+        // 
+        console.log(response.data.types);
+        console.log(response.data.types[0].type.name);
+        // res.render("index.ejs");
+    } catch (error) {
+        console.log(error.response.data);
+    }
+    // tmp
+    res.render("index.ejs");
+})
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`)
 });
