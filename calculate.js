@@ -32,11 +32,11 @@ const typeChart = {
   "fighting": {
     "double_damage_from": ["flying", "psychic", "fairy"],
     "half_damage_from": ["bug", "rock", "dark"],
-    "no_damage_from": ["ghost"]
+    "no_damage_from": []
   },
   "poison": {
     "double_damage_from": ["ground", "psychic"],
-    "half_damage_from": ["fighting", "poison", "grass", "fairy"],
+    "half_damage_from": ["grass", "fighting", "poison", "bug", "fairy"],
     "no_damage_from": []
   },
   "ground": {
@@ -46,7 +46,7 @@ const typeChart = {
   },
   "flying": {
     "double_damage_from": ["electric", "ice", "rock"],
-    "half_damage_from": ["fighting", "bug", "grass"],
+    "half_damage_from": ["grass", "fighting", "bug"],
     "no_damage_from": ["ground"]
   },
   "psychic": {
@@ -56,11 +56,11 @@ const typeChart = {
   },
   "bug": {
     "double_damage_from": ["fire", "flying", "rock"],
-    "half_damage_from": ["fighting", "ground", "grass"],
+    "half_damage_from": ["grass", "fighting", "ground"],
     "no_damage_from": []
   },
   "rock": {
-    "double_damage_from": ["fighting", "ground", "steel", "water", "grass"],
+    "double_damage_from": ["water", "grass", "fighting", "ground", "steel"],
     "half_damage_from": ["normal", "fire", "poison", "flying"],
     "no_damage_from": []
   },
@@ -74,15 +74,15 @@ const typeChart = {
     "half_damage_from": ["fire", "water", "electric", "grass"],
     "no_damage_from": []
   },
-  "steel": {
-    "double_damage_from": ["fighting", "ground", "fire"],
-    "half_damage_from": ["normal", "flying", "rock", "bug", "steel", "grass", "psychic", "ice", "dragon", "fairy"],
-    "no_damage_from": ["poison"]
-  },
   "dark": {
     "double_damage_from": ["fighting", "bug", "fairy"],
     "half_damage_from": ["ghost", "dark"],
     "no_damage_from": ["psychic"]
+  },
+  "steel": {
+    "double_damage_from": ["fire", "fighting", "ground"],
+    "half_damage_from": ["normal", "grass", "ice", "flying", "psychic", "bug", "rock", "dragon", "steel", "fairy"],
+    "no_damage_from": ["poison"]
   },
   "fairy": {
     "double_damage_from": ["poison", "steel"],
@@ -97,51 +97,3 @@ const allPokemonTypes = [
   "poison", "ground", "flying", "psychic", "bug", "rock", "ghost",
   "dragon", "steel", "dark", "fairy"
 ];
-
-// function section
-function calculateEffectiveness(attackingType, defendingTypes) {
-  let multiplier = 1.0;
-
-  for (const defType of defendingTypes) {
-    if (typeChart[defType]) {
-      // Check for immunity (0x damage) first, as it overrides other multipliers
-      if (typeChart[defType]["no_damage_from"].includes(attackingType)) {
-        multiplier *= 0.0;
-        break; // If immune to one type, no damage regardless of the other type
-      } else if (typeChart[defType]["double_damage_from"].includes(attackingType)) {
-        multiplier *= 2.0;
-      } else if (typeChart[defType]["half_damage_from"].includes(attackingType)) {
-        multiplier *= 0.5;
-      }
-    }
-  }
-  return multiplier;
-}
-
-export function getAllTypeEffectiveness(pokemonTypes) {
-  const effectivenessResults = {
-    "4x": [],      // Double Super Effective
-    "2x": [],      // Super Effective
-    "0.5x": [],    // Not Very Effective
-    "0.25x": [],   // Double Not Very Effective
-    "0x": []       // Immune
-  };
-
-  for (const attType of allPokemonTypes) {
-    const multiplier = calculateEffectiveness(attType, pokemonTypes);
-
-    if (multiplier === 4.0) {
-      effectivenessResults["4x"].push(attType);
-    } else if (multiplier === 2.0) {
-      effectivenessResults["2x"].push(attType);
-    } else if (multiplier === 0.5) {
-      effectivenessResults["0.5x"].push(attType);
-    } else if (multiplier === 0.25) {
-      effectivenessResults["0.25x"].push(attType);
-    } else if (multiplier === 0.0) {
-      effectivenessResults["0x"].push(attType);
-    }
-  }
-
-  return effectivenessResults;
-}
