@@ -25,13 +25,21 @@
             </div>
         </div>
     </nav>
-    <form action="/get" method="POST">
+    <!-- <form action="/get" method="POST">
         <input type="text" name="pokemonName" placeholder="Pokemon Name">
         <input type="submit" value="OK">
-    </form>
+    </form> -->
+
+    <div class="search-container">
+        <input type="text" id="pokemonSearchInput" class="search-input" placeholder="Search Pokemon Name...">
+        <button type="button" class="clear-search-button d-none" id="clearSearchButton">✖</button>
+        <ul id="searchResults" class="search-results"></ul>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+    <script src="/script/scriptindex.js"></script>
 </body>
 
 </html>
