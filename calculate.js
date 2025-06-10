@@ -1,3 +1,4 @@
+// base on https://pokemondb.net/type
 const typeChart = {
   "normal": {
     "double_damage_from": ["fighting"],
@@ -95,5 +96,50 @@ const typeChart = {
 const allPokemonTypes = [
   "normal", "fire", "water", "electric", "grass", "ice", "fighting",
   "poison", "ground", "flying", "psychic", "bug", "rock", "ghost",
-  "dragon", "steel", "dark", "fairy"
+  "dragon", "dark", "steel", "fairy"
 ];
+
+// 0 1/4 1/2 2 4 
+
+// pokemonTypes is string[]
+function calculateMultiplier(attackingType, defendingType) {
+  // initial at base 1x
+  let multiplier = 1.0;
+  for (const def of defendingType) {
+    // typechart[element][damage]
+    if (typeChart[def]["no_damage_from"].includes(attackingType)) {
+      return 0.0;
+    } else if (typeChart[def]["half_damage_from"].includes(attackingType)) {
+      multiplier *= 0.5;
+    } else if (typeChart[def]["double_damage_from"].includes(attackingType)) {
+      multiplier *= 2.0;
+    }
+  }
+  return multiplier;
+}
+
+
+export function getAllTypeEffectiveness(pokemonTypes) {
+  let result = {
+    "4": [],     // Double Super Effective
+    "2": [],     // Super Effective
+    "0.5": [],     // Not Very Effective
+    "0.25": [],    // Double Not Very Effective
+    "0": []      // Immune
+  };
+  // loop through all pokemon type
+  // console.log("Wtf");
+  let arr = [4, 2, 0.5, 0.25, 0];
+  for (const att of allPokemonTypes) {
+    // this function will handle *4, *2, *0.5, *0.25, *0
+    // console.log("imhere");
+    const mux = calculateMultiplier(att, pokemonTypes);
+    // console.log(mux);
+    // mux.toString()
+    if (arr.includes(mux)) {
+      // console.log(mux.toString());
+      result[mux.toString()].push(att);
+    }
+  }
+  return result;
+}
