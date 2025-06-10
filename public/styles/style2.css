@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     color: #343a40;
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
     min-height: 100vh;
     display: flex;
     flex-direction: column; /* Ensure footer sticks to bottom if added later */
@@ -227,6 +227,24 @@ h2.text-success { border-color: #28a745; } /* Success green */
 .about-card ul li i {
     font-size: 1.2rem;
     vertical-align: middle;
+}
+
+/* GitHub Button Style */
+.github-btn {
+    background-color: #333;
+    border-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.github-btn:hover {
+    background-color: #555;
+    border-color: #555;
+    transform: translateY(-2px);
+    color: #fff; /* Ensure text color remains white on hover */
 }
 
 
