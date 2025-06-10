@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif; 
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     color: #343a40; 
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
