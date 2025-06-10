@@ -1,69 +1,69 @@
 /* General Body Styles */
 body {
-    font-family: 'Poppins', sans-serif; /* ฟอนต์หลักของเว็บ */
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* พื้นหลังไล่สีอ่อนๆ */
-    color: #343a40; /* สีข้อความหลัก */
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #343a40; 
     padding-bottom: 50px;
-    min-height: 100vh; /* ทำให้ body กินพื้นที่เต็มหน้าจอ */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 .container-max-width {
-    max-width: 960px; /* กำหนดความกว้างสูงสุดของ content */
+    max-width: 960px; 
 }
 
 /* Navbar Styles */
 .pokemon-navbar {
-    background: linear-gradient(to right, #e74c3c, #c0392b); /* Gradient สีแดง Pokedex */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* เงาใต้ Navbar */
-    padding: 15px 0; /* เพิ่ม padding แนวตั้ง */
+    background: linear-gradient(to right, #e74c3c, #c0392b); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px 0; 
 }
 
 .navbar-brand {
-    font-family: 'Press Start 2P', cursive; /* ฟอนต์สไตล์เกมย้อนยุคสำหรับชื่อแบรนด์ */
+    font-family: 'Press Start 2P', cursive; 
     font-size: 1.8rem;
-    color: #fff !important; /* สีขาว */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* เงาข้อความ */
+    color: #fff !important; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
     display: flex;
-    align-items: center; /* จัดให้โลโก้และข้อความอยู่กึ่งกลางแนวตั้ง */
+    align-items: center; 
 }
 
 .navbar-logo {
-    height: 40px; /* ขนาดของโลโก้ Pokeball */
+    height: 40px; 
     margin-right: 10px;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); /* เอฟเฟกต์เรืองแสงที่โลโก้ */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
 .pokemon-navbar .nav-link {
     color: #fff !important;
     font-weight: 600;
     font-size: 1.05rem;
-    padding: 10px 18px; /* เพิ่ม padding ให้ลิงก์ใน Navbar */
+    padding: 10px 18px; 
     border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation เมื่อ hover */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .pokemon-navbar .nav-link:hover,
 .pokemon-navbar .nav-link.active {
-    background-color: rgba(255, 255, 255, 0.2); /* สีพื้นหลังโปร่งแสงเมื่อ hover/active */
-    transform: translateY(-2px); /* ยกขึ้นเล็กน้อยเมื่อ hover */
+    background-color: rgba(255, 255, 255, 0.2); 
+    transform: translateY(-2px); 
 }
 
 .pokemon-navbar .nav-link.active {
-    border-bottom: 3px solid #f1c40f; /* ขีดเส้นใต้สีเหลืองสำหรับลิงก์ที่ active */
-    padding-bottom: 7px; /* ปรับ padding ให้ขีดเส้นใต้ไม่ทับข้อความ */
+    border-bottom: 3px solid #f1c40f; 
+    padding-bottom: 7px; 
 }
 
 /* Main Content Area */
 .main-content {
-    flex-grow: 1; /* ทำให้เนื้อหาหลักขยายเต็มพื้นที่ที่เหลือ */
-    max-width: 960px; /* กำหนดความกว้างสูงสุด */
-    margin: 0 auto; /* จัดกึ่งกลาง */
+    flex-grow: 1; 
+    max-width: 960px; 
+    margin: 0 auto; 
 }
 
 .project-title {
-    color: #c0392b; /* สีเดียวกับ Navbar red */
+    color: #c0392b; 
     font-weight: 700;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -130,11 +130,11 @@ body {
 }
 
 .search-results {
-    list-style: none; /* ลบ bullet point */
+    list-style: none;
     padding: 0;
     margin: 0;
-    max-height: 400px; /* เพิ่มความสูงสูงสุดของผลลัพธ์ */
-    overflow-y: auto; /* เพิ่ม scrollbar ถ้าผลลัพธ์เยอะ */
+    max-height: 400px; 
+    overflow-y: auto;
     border: 1px solid #eee;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -149,9 +149,9 @@ body {
 
 .search-results li {
     padding: 10px 15px;
-    border-bottom: 1px solid #f0f0f0; /* เส้นแบ่งที่เบาลง */
+    border-bottom: 1px solid #f0f0f0; 
     transition: background-color 0.2s ease;
-    display: flex; /* ใช้ flexbox สำหรับจัดเรียงรูปภาพ ชื่อ และประเภท */
+    display: flex;
     align-items: center;
 }
 
@@ -160,24 +160,24 @@ body {
 }
 
 .search-results li:hover {
-    background-color: #f0f8ff; /* สีพื้นหลังเมื่อ hover */
+    background-color: #f0f8ff; 
     cursor: pointer;
 }
 
 .search-results li a {
     text-decoration: none;
-    color: inherit; /* ใช้สีตัวอักษรหลัก */
-    display: flex; /* ทำให้ลิงก์ครอบคลุมทั้งแถว */
+    color: inherit; 
+    display: flex; 
     align-items: center;
     width: 100%;
 }
 
 .search-result-image {
-    width: 50px; /* ขนาดรูปภาพในผลการค้นหา */
+    width: 50px; 
     height: 50px;
-    object-fit: contain; /* รักษาสัดส่วนรูปภาพ */
+    object-fit: contain; 
     margin-right: 15px;
-    image-rendering: pixelated; /* ทำให้รูปภาพโปเกมอนดูคมชัดแบบ pixelated */
+    image-rendering: pixelated; 
     filter: drop-shadow(0 0 5px rgba(0,0,0,0.1));
 }
 
@@ -185,13 +185,13 @@ body {
     font-weight: 600;
     font-size: 1.1rem;
     color: #343a40;
-    text-transform: capitalize; /* Capitalize the whole name */
+    text-transform: capitalize; 
 }
 
 /* Highlight text in search results */
 .highlight {
-    background-color: #ffda00; /* สีเหลืองสดใส */
-    padding: 2px 0px; /* Adjusted padding to prevent breaking line height too much */
+    background-color: #ffda00; 
+    padding: 2px 0px; 
     border-radius: 3px;
     font-weight: 700;
 }
@@ -200,8 +200,8 @@ body {
 .type-badge {
     display: inline-block;
     padding: 0.3em 0.6em;
-    margin-left: 5px; /* Adjusted margin to be on the left of the badge itself */
-    margin-bottom: 0px; /* Removed margin-bottom for better vertical alignment in search results */
+    margin-left: 5px; 
+    margin-bottom: 0px; 
     border-radius: 5px;
     font-size: 0.75em;
     font-weight: bold;
@@ -231,7 +231,7 @@ body {
 .type-dark { background-color: #705746; }
 .type-fairy { background-color: #D685AD; }
 /* New types from Gen 6+ */
-.type-stellar { background-color: #3D5A5A; } /* Example, if this type exists */
+.type-stellar { background-color: #3D5A5A; } 
 
 /* Feature Section Styles */
 .feature-box {
@@ -240,7 +240,7 @@ body {
     padding: 30px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; /* Ensure all boxes have same height */
+    height: 100%; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -254,7 +254,7 @@ body {
 
 .feature-icon {
     font-size: 3rem;
-    color: #e74c3c; /* Red color for icons */
+    color: #e74c3c; 
     margin-bottom: 20px;
 }
 
@@ -292,7 +292,7 @@ body {
     }
 
     .search-results {
-        width: calc(100% - 40px); /* Adjust width for smaller screens */
-        left: 20px; /* Align with parent padding */
+        width: calc(100% - 40px); 
+        left: 20px; 
     }
 }
