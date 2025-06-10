@@ -8,7 +8,7 @@
 
 * **Comprehensive Pokémon Data:** Access detailed information for a vast array of Pokémon.
 * **Type Weakness/Resistance Calculation:** Instantly see what types are super effective or not very effective against a given Pokémon.
-* **Search Functionality:** Easily find Pokémon by name or Pokedex ID.
+* **Search Functionality:** Easily find Pokémon by name.
 * **User-Friendly Interface:** A clean and intuitive design for a smooth Browse experience.
 * **Responsive Design:** Optimized for use on various devices, from desktops to mobile phones.
 
@@ -17,7 +17,7 @@
 ### On the Live Application (if deployed)
 
 1.  **Visit the Website:** Go to [Your Deployed Application URL Here (e.g., `https://pokeweaknessfinder.onrender.com`)].
-2.  **Search for a Pokémon:** On the homepage, use the search bar to enter a Pokémon's name (e.g., "Pikachu", "Charizard") or its Pokedex ID (e.g., "25", "6").
+2.  **Search for a Pokémon:** On the homepage, use the search bar to enter a Pokémon's name (e.g., "Pikachu", "Charizard").
 3.  **View Details:** Click on a search result to navigate to the Pokémon's detail page.
 4.  **Discover Weaknesses:** The detail page will clearly display its type(s) and a breakdown of what types it's weak against, resists, or is immune to.
 
@@ -55,9 +55,9 @@ Make sure you have the following installed:
 
 1.  **Start the Server:**
     ```bash
-    node app.js
+    node server.js
     # Or, if you have nodemon installed (recommended for development):
-    # nodemon app.js
+    # nodemon server.js
     ```
     You should see a message in your terminal indicating that the server is running (e.g., "Server is running on port 3000").
 
