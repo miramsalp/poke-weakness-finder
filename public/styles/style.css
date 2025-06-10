@@ -69,50 +69,64 @@ body {
 }
 
 /* Search Section Styles */
-.search-section {
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* เงาของ card */
-    border: none;
-    padding: 30px !important; /* เพิ่ม padding ด้านใน */
-}
-
-.search-input-group {
-    position: relative; /* สำหรับจัดตำแหน่งปุ่ม clear */
-}
-
 .search-input {
-    border-radius: 30px !important; /* ทำให้ input มีขอบโค้งมน */
+    border-radius: 30px !important;
     padding: 12px 20px;
-    padding-right: 50px; /* เว้นที่ว่างสำหรับปุ่ม clear */
+    padding-right: 50px; /* Ensure enough padding for the 'X' */
     border: 2px solid #ccc;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
 }
 
 .search-input:focus {
-    border-color: #007bff; /* สีขอบเมื่อ focus */
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* เงาเมื่อ focus */
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
 }
 
-.clear-search-button {
+/* Hide the default clear button in Webkit browsers (Chrome, Safari) */
+.search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+/* Hide the default clear button in IE/Edge */
+.search-input::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Parent container for the input and the custom 'X' */
+.search-input-group {
+    position: relative; /* Crucial for positioning the ::after pseudo-element */
+}
+
+/* Custom 'X' icon using ::after pseudo-element */
+.search-input-group::after {
+    content: '✖'; /* The 'X' character */
     position: absolute;
-    right: 5px;
+    right: 15px; /* Position from the right edge of the input group */
     top: 50%;
     transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #888;
-    font-size: 1.5rem;
-    padding: 0 10px;
+    color: #888; /* Default color */
+    font-size: 1.2rem;
     cursor: pointer;
-    z-index: 10; /* ให้ปุ่มอยู่เหนือ input */
     opacity: 0.7;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    display: none; /* Hidden by default, will be shown by JS */
+    z-index: 10; /* Ensure it's above the input */
+    padding: 5px; /* Add some padding to make it easier to click */
 }
 
-.clear-search-button:hover {
+/* Show the 'X' when the input has content */
+.search-input-group.has-content::after {
+    display: block;
+}
+
+.search-input-group::after:hover {
     opacity: 1;
-    color: #333;
+    color: #333; /* Darker color on hover */
 }
 
 .search-results {
@@ -124,6 +138,13 @@ body {
     border: 1px solid #eee;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: #fff; /* Ensure background is white */
+    position: absolute; /* Position relative to .search-section */
+    width: calc(100% - 60px); /* Adjust width to match parent padding */
+    left: 30px; /* Align with parent padding */
+    top: calc(100% + 10px); /* Position below the search input, add some space */
+    z-index: 1000; /* Ensure it's above other content */
+    display: none; /* Hidden by default */
 }
 
 .search-results li {
@@ -160,20 +181,17 @@ body {
     filter: drop-shadow(0 0 5px rgba(0,0,0,0.1));
 }
 
-.search-result-name {
+.pokemon-name-suggestion {
     font-weight: 600;
     font-size: 1.1rem;
     color: #343a40;
-}
-
-.search-result-types {
-    margin-top: 5px;
+    text-transform: capitalize; /* Capitalize the whole name */
 }
 
 /* Highlight text in search results */
 .highlight {
     background-color: #ffda00; /* สีเหลืองสดใส */
-    padding: 2px 4px;
+    padding: 2px 0px; /* Adjusted padding to prevent breaking line height too much */
     border-radius: 3px;
     font-weight: 700;
 }
@@ -182,14 +200,15 @@ body {
 .type-badge {
     display: inline-block;
     padding: 0.3em 0.6em;
-    margin-right: 5px;
-    margin-bottom: 5px; /* Adjust margin if needed */
+    margin-left: 5px; /* Adjusted margin to be on the left of the badge itself */
+    margin-bottom: 0px; /* Removed margin-bottom for better vertical alignment in search results */
     border-radius: 5px;
     font-size: 0.75em;
     font-weight: bold;
     color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    text-transform: capitalize;
 }
 
 /* Pokémon Type Colors (must be consistent across all CSS files that use them) */
@@ -270,5 +289,10 @@ body {
 
     .feature-box {
         margin-bottom: 20px;
+    }
+
+    .search-results {
+        width: calc(100% - 40px); /* Adjust width for smaller screens */
+        left: 20px; /* Align with parent padding */
     }
 }

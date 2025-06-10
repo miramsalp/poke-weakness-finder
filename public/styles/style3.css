@@ -1,0 +1,187 @@
+/* General body and container styling if not already in style.css */
+body {
+    font-family: 'Poppins', sans-serif; /* Example font from your index.ejs */
+    background-color: #f8f9fa; /* Light background */
+    color: #333;
+}
+
+.container {
+    max-width: 960px; /* Limit width of content */
+}
+
+/* Pokemon Detail Card */
+.pokemon-detail-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: .5rem;
+    overflow: hidden; /* Ensures content respects rounded corners */
+}
+
+.pokemon-detail-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px; /* Adjust as needed for image size */
+    object-fit: contain; /* Ensures image scales within bounds */
+}
+
+/* Type Badges */
+.type-badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    color: #fff;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* Type Colors - IMPORTANT: Include all 18 standard Pokémon types */
+.type-normal { background-color: #A8A77A; }
+.type-fire { background-color: #EE8130; }
+.type-water { background-color: #6390F0; }
+.type-grass { background-color: #7AC74C; }
+.type-electric { background-color: #F7D02C; }
+.type-ice { background-color: #96D9D6; }
+.type-fighting { background-color: #C22E28; }
+.type-poison { background-color: #A33EA1; }
+.type-ground { background-color: #E2BF65; }
+.type-flying { background-color: #A98FF3; }
+.type-psychic { background-color: #F95587; }
+.type-bug { background-color: #A6B91A; }
+.type-rock { background-color: #B6A136; }
+.type-ghost { background-color: #735797; }
+.type-dragon { background-color: #6F35FC; }
+.type-steel { background-color: #B7B7CE; }
+.type-dark { background-color: #705746; }
+.type-fairy { background-color: #D685AD; }
+
+/* Stats Section */
+.stat-item {
+    font-weight: bold;
+    /* Removed display:flex, justify-content-between, align-items-center to allow progress bar to be below */
+}
+
+.stat-name {
+    text-transform: capitalize; /* Capitalize stat names */
+    display: block; /* Ensure stat name takes its own line above value/progress */
+    margin-bottom: 2px;
+}
+
+.stat-value {
+    display: block; /* Ensure stat value takes its own line */
+    font-size: 1.1em;
+    color: #007bff; /* Example color for value */
+}
+
+.progress {
+    height: 10px;
+    background-color: #e9ecef; /* Lighter background for empty part of bar */
+}
+
+.progress-bar {
+    background-color: #007bff; /* Blue progress bar */
+    /* You might want to customize colors based on stat value or type later */
+}
+
+/* Headings for Weaknesses/Resistances */
+h2.text-warning {
+    color: #ffc107 !important; /* Bootstrap warning color */
+}
+
+h5.text-danger {
+    color: #dc3545 !important; /* Bootstrap danger color */
+}
+
+h5.text-warning {
+    color: #ffc107 !important; /* Bootstrap warning color */
+}
+
+h2.text-success {
+    color: #28a745 !important; /* Bootstrap success color */
+}
+
+h5.text-success {
+    color: #28a745 !important; /* Bootstrap success color */
+}
+
+h5.text-info {
+    color: #17a2b8 !important; /* Bootstrap info color */
+}
+
+h5.text-primary {
+    color: #007bff !important; /* Bootstrap primary color */
+}
+
+/* Additional layout adjustments if needed */
+.d-flex.flex-column.justify-content-center.align-items-center.p-3 {
+    padding: 1.5rem !important; /* Override default padding if necessary */
+}
+
+.row.w-100.px-3 {
+    width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+/* Navbar (from your index.ejs, but ensure it's consistent if shared) */
+.pokemon-navbar {
+    background-color: #d32f2f; /* Red */
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand:hover {
+    color: #ffe082; /* Lighter yellow on hover */
+}
+
+.navbar-logo {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffe082 !important;
+}
+
+.container-max-width {
+    max-width: 1200px; /* Adjust as needed */
+}
+
+/* Feature Boxes (from index.ejs, keeping consistent styling) */
+.feature-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #d32f2f;
+    margin-bottom: 15px;
+}
