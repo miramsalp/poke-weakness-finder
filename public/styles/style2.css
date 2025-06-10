@@ -1,0 +1,247 @@
+/* General Body Styles for Detail and About Pages */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #343a40;
+    padding-bottom: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Ensure footer sticks to bottom if added later */
+}
+
+.container-max-width {
+    max-width: 960px; /* Consistent max width */
+}
+
+/* Navbar Styles (copied from style.css for consistency) */
+.pokemon-navbar {
+    background: linear-gradient(to right, #e74c3c, #c0392b);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8rem;
+    color: #fff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 40px;
+    margin-right: 10px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.pokemon-navbar .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pokemon-navbar .nav-link:hover,
+.pokemon-navbar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.pokemon-navbar .nav-link.active {
+    border-bottom: 3px solid #f1c40f;
+    padding-bottom: 7px;
+}
+
+
+/* Breadcrumb Styles */
+.breadcrumb {
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+}
+
+.breadcrumb-item a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+
+/* Pokemon Detail Card Styles */
+.pokemon-detail-card {
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden; /* Ensure rounded corners are applied to children */
+    background-color: #ffffff;
+}
+
+.pokemon-detail-image {
+    max-width: 80%; /* Adjust as needed */
+    height: auto;
+    image-rendering: pixelated; /* For sharp pixel art */
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2)); /* Shadow for the image */
+    background: radial-gradient(circle, #f0f0f0 20%, transparent 80%); /* Subtle background for image */
+    padding: 20px; /* Add some padding around the image */
+    border-radius: 15px;
+}
+
+/* Stats Section */
+.stat-item {
+    padding: 5px 0;
+    font-size: 0.95rem;
+}
+
+.stat-name {
+    font-weight: 600;
+    color: #555;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: #333;
+}
+
+.progress {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #28a745; /* Default green for progress bars */
+    transition: width 0.6s ease-in-out;
+}
+
+/* Adjust progress bar colors for specific stats for better visualization */
+#stat-bar-hp { background-color: #28a745; } /* Green */
+#stat-bar-attack { background-color: #dc3545; } /* Red */
+#stat-bar-defense { background-color: #ffc107; } /* Yellow */
+#stat-bar-special-attack { background-color: #6f42c1; } /* Purple */
+#stat-bar-special-defense { background-color: #17a2b8; } /* Teal */
+#stat-bar-speed { background-color: #fd7e14; } /* Orange */
+
+
+/* Pokemon Info & Description */
+.card-title small {
+    font-size: 0.6em;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+/* Type Badges - Ensure these are here and consistent */
+.type-badge {
+    display: inline-block;
+    padding: 0.3em 0.8em; /* Adjusted padding for better look */
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-radius: 15px; /* More rounded pill shape */
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.type-badge:hover {
+    transform: translateY(-2px);
+}
+
+/* Pokémon Type Colors */
+.type-normal { background-color: #A8A77A; }
+.type-fire { background-color: #EE812F; }
+.type-water { background-color: #6390F0; }
+.type-grass { background-color: #7AC74C; }
+.type-electric { background-color: #F7D02C; }
+.type-ice { background-color: #96D9D6; }
+.type-fighting { background-color: #C22E28; }
+.type-poison { background-color: #A33EA1; }
+.type-ground { background-color: #E2BF65; }
+.type-flying { background-color: #A98FF3; }
+.type-psychic { background-color: #F95587; }
+.type-bug { background-color: #A6B91A; }
+.type-rock { background-color: #B6A136; }
+.type-ghost { background-color: #735797; }
+.type-dragon { background-color: #6F35FC; }
+.type-steel { background-color: #B7B7CE; }
+.type-dark { background-color: #705746; }
+.type-fairy { background-color: #D685AD; }
+
+
+/* Weaknesses & Resistances Headings */
+h2.text-warning, h2.text-success {
+    border-bottom: 2px solid;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+h2.text-warning { border-color: #ffc107; } /* Warning yellow */
+h2.text-success { border-color: #28a745; } /* Success green */
+
+
+/* About Page Specific Styles */
+.about-content {
+    max-width: 800px; /* Slightly narrower for about page */
+    margin: 0 auto;
+}
+
+.about-card {
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    padding: 30px !important;
+}
+
+.about-title {
+    color: #c0392b;
+    font-weight: 700;
+}
+
+.about-card h4 {
+    color: #e74c3c; /* Red for section titles */
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.about-card ul {
+    margin-top: 15px;
+}
+
+.about-card ul li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+.about-card ul li i {
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .pokemon-detail-card .col-md-5,
+    .pokemon-detail-card .col-md-7 {
+        padding: 15px !important;
+    }
+
+    .pokemon-detail-image {
+        max-width: 100%;
+    }
+
+    .stat-item {
+        font-size: 0.9rem;
+    }
+}

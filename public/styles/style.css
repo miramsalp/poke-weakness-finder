@@ -1,73 +1,137 @@
-.bg-red {
-    background-color: rgb(255, 80, 80);
+/* General Body Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* ฟอนต์หลักของเว็บ */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* พื้นหลังไล่สีอ่อนๆ */
+    color: #343a40; /* สีข้อความหลัก */
+    padding-bottom: 50px;
+    min-height: 100vh; /* ทำให้ body กินพื้นที่เต็มหน้าจอ */
+    display: flex;
+    flex-direction: column;
 }
 
-.overwrite-margin-left {
-    margin-left: auto;
+.container-max-width {
+    max-width: 960px; /* กำหนดความกว้างสูงสุดของ content */
 }
 
-.search-container {
-    max-width: 600px;
-    margin: 50px auto 20px auto;
-    position: relative;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+/* Navbar Styles */
+.pokemon-navbar {
+    background: linear-gradient(to right, #e74c3c, #c0392b); /* Gradient สีแดง Pokedex */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* เงาใต้ Navbar */
+    padding: 15px 0; /* เพิ่ม padding แนวตั้ง */
+}
+
+.navbar-brand {
+    font-family: 'Press Start 2P', cursive; /* ฟอนต์สไตล์เกมย้อนยุคสำหรับชื่อแบรนด์ */
+    font-size: 1.8rem;
+    color: #fff !important; /* สีขาว */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* เงาข้อความ */
+    display: flex;
+    align-items: center; /* จัดให้โลโก้และข้อความอยู่กึ่งกลางแนวตั้ง */
+}
+
+.navbar-logo {
+    height: 40px; /* ขนาดของโลโก้ Pokeball */
+    margin-right: 10px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); /* เอฟเฟกต์เรืองแสงที่โลโก้ */
+}
+
+.pokemon-navbar .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 10px 18px; /* เพิ่ม padding ให้ลิงก์ใน Navbar */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation เมื่อ hover */
+}
+
+.pokemon-navbar .nav-link:hover,
+.pokemon-navbar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2); /* สีพื้นหลังโปร่งแสงเมื่อ hover/active */
+    transform: translateY(-2px); /* ยกขึ้นเล็กน้อยเมื่อ hover */
+}
+
+.pokemon-navbar .nav-link.active {
+    border-bottom: 3px solid #f1c40f; /* ขีดเส้นใต้สีเหลืองสำหรับลิงก์ที่ active */
+    padding-bottom: 7px; /* ปรับ padding ให้ขีดเส้นใต้ไม่ทับข้อความ */
+}
+
+/* Main Content Area */
+.main-content {
+    flex-grow: 1; /* ทำให้เนื้อหาหลักขยายเต็มพื้นที่ที่เหลือ */
+    max-width: 960px; /* กำหนดความกว้างสูงสุด */
+    margin: 0 auto; /* จัดกึ่งกลาง */
+}
+
+.project-title {
+    color: #c0392b; /* สีเดียวกับ Navbar red */
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Section Styles */
+.search-section {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* เงาของ card */
+    border: none;
+    padding: 30px !important; /* เพิ่ม padding ด้านใน */
+}
+
+.search-input-group {
+    position: relative; /* สำหรับจัดตำแหน่งปุ่ม clear */
 }
 
 .search-input {
-    width: 100%;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    outline: none;
+    border-radius: 30px !important; /* ทำให้ input มีขอบโค้งมน */
+    padding: 12px 20px;
+    padding-right: 50px; /* เว้นที่ว่างสำหรับปุ่ม clear */
+    border: 2px solid #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #007bff; /* สีขอบเมื่อ focus */
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* เงาเมื่อ focus */
 }
 
 .clear-search-button {
     position: absolute;
-    right: 15px;
+    right: 5px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
-    font-size: 1.5em;
-    color: #aaa;
+    color: #888;
+    font-size: 1.5rem;
+    padding: 0 10px;
     cursor: pointer;
-    line-height: 1;
+    z-index: 10; /* ให้ปุ่มอยู่เหนือ input */
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
 }
 
 .clear-search-button:hover {
-    color: #666;
+    opacity: 1;
+    color: #333;
 }
 
 .search-results {
-    list-style: none;
+    list-style: none; /* ลบ bullet point */
     padding: 0;
     margin: 0;
-    position: absolute;
-    top: 100%;
-    left: -1px;
-    width: calc(100% + 2px);
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-top: none;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    max-height: 400px;
-    overflow-y: auto;
-    z-index: 1000;
-    display: none;
+    max-height: 400px; /* เพิ่มความสูงสูงสุดของผลลัพธ์ */
+    overflow-y: auto; /* เพิ่ม scrollbar ถ้าผลลัพธ์เยอะ */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Each Search Result Item */
 .search-results li {
-    display: flex;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0; /* เส้นแบ่งที่เบาลง */
+    transition: background-color 0.2s ease;
+    display: flex; /* ใช้ flexbox สำหรับจัดเรียงรูปภาพ ชื่อ และประเภท */
     align-items: center;
-    padding: 8px 15px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
 }
 
 .search-results li:last-child {
@@ -75,118 +139,136 @@
 }
 
 .search-results li:hover {
-    background-color: #f0f0f0;
+    background-color: #f0f8ff; /* สีพื้นหลังเมื่อ hover */
+    cursor: pointer;
 }
 
-.search-results .pokemon-image-mini {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    margin-right: 10px;
-    flex-shrink: 0;
+.search-results li a {
+    text-decoration: none;
+    color: inherit; /* ใช้สีตัวอักษรหลัก */
+    display: flex; /* ทำให้ลิงก์ครอบคลุมทั้งแถว */
+    align-items: center;
+    width: 100%;
 }
 
-.search-results .pokemon-name-suggestion {
-    font-size: 1em;
-    color: #333;
-    text-transform: capitalize;
-    flex-grow: 1;
+.search-result-image {
+    width: 50px; /* ขนาดรูปภาพในผลการค้นหา */
+    height: 50px;
+    object-fit: contain; /* รักษาสัดส่วนรูปภาพ */
+    margin-right: 15px;
+    image-rendering: pixelated; /* ทำให้รูปภาพโปเกมอนดูคมชัดแบบ pixelated */
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.1));
 }
 
-/* Highlight for search results */
-.highlight-first {
-    color: #007bff;
-    text-decoration: underline;
-    font-weight: bold;
+.search-result-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #343a40;
 }
 
-.highlight-rest {
-    color: #dc3545;
-    text-decoration: underline;
-    font-weight: bold;
+.search-result-types {
+    margin-top: 5px;
 }
 
+/* Highlight text in search results */
+.highlight {
+    background-color: #ffda00; /* สีเหลืองสดใส */
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+/* Type Badges - copied from style2.css for consistency (ensure these are also in style2.css) */
 .type-badge {
     display: inline-block;
-    padding: 2px 7px;
-    margin-left: 5px;
-    border-radius: 4px;
+    padding: 0.3em 0.6em;
+    margin-right: 5px;
+    margin-bottom: 5px; /* Adjust margin if needed */
+    border-radius: 5px;
     font-size: 0.75em;
     font-weight: bold;
     color: white;
-    text-transform: capitalize;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    white-space: nowrap;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.type-normal {
-    background-color: #A8A77A;
+/* Pokémon Type Colors (must be consistent across all CSS files that use them) */
+.type-normal { background-color: #A8A77A; }
+.type-fire { background-color: #EE812F; }
+.type-water { background-color: #6390F0; }
+.type-grass { background-color: #7AC74C; }
+.type-electric { background-color: #F7D02C; }
+.type-ice { background-color: #96D9D6; }
+.type-fighting { background-color: #C22E28; }
+.type-poison { background-color: #A33EA1; }
+.type-ground { background-color: #E2BF65; }
+.type-flying { background-color: #A98FF3; }
+.type-psychic { background-color: #F95587; }
+.type-bug { background-color: #A6B91A; }
+.type-rock { background-color: #B6A136; }
+.type-ghost { background-color: #735797; }
+.type-dragon { background-color: #6F35FC; }
+.type-steel { background-color: #B7B7CE; }
+.type-dark { background-color: #705746; }
+.type-fairy { background-color: #D685AD; }
+/* New types from Gen 6+ */
+.type-stellar { background-color: #3D5A5A; } /* Example, if this type exists */
+
+/* Feature Section Styles */
+.feature-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensure all boxes have same height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.type-fire {
-    background-color: #EE8130;
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.type-water {
-    background-color: #6390F0;
+.feature-icon {
+    font-size: 3rem;
+    color: #e74c3c; /* Red color for icons */
+    margin-bottom: 20px;
 }
 
-.type-electric {
-    background-color: #F7D02C;
+.feature-box h4 {
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 15px;
 }
 
-.type-grass {
-    background-color: #7AC74C;
+.feature-box p {
+    font-size: 0.95rem;
+    color: #6c757d;
 }
 
-.type-ice {
-    background-color: #96D9D6;
-}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
 
-.type-fighting {
-    background-color: #C22E28;
-}
+    .navbar-logo {
+        height: 30px;
+    }
 
-.type-poison {
-    background-color: #A33EA1;
-}
+    .project-title {
+        font-size: 2.5rem;
+    }
 
-.type-ground {
-    background-color: #E2BF65;
-}
+    .search-section {
+        padding: 20px !important;
+    }
 
-.type-flying {
-    background-color: #A98FF3;
-}
-
-.type-psychic {
-    background-color: #F95587;
-}
-
-.type-bug {
-    background-color: #A6B91A;
-}
-
-.type-rock {
-    background-color: #B6A136;
-}
-
-.type-ghost {
-    background-color: #735797;
-}
-
-.type-dragon {
-    background-color: #6F35FC;
-}
-
-.type-dark {
-    background-color: #705746;
-}
-
-.type-steel {
-    background-color: #B7B7CE;
-}
-
-.type-fairy {
-    background-color: #D685AD;
+    .feature-box {
+        margin-bottom: 20px;
+    }
 }

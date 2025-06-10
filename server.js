@@ -1,10 +1,11 @@
+// server.js
 import express from "express";
 import bodyParser from "body-parser";
-import axios from "axios"; 
-import { getAllTypeEffectiveness } from "./calculate.js";
+import axios from "axios";
+import { getAllTypeEffectiveness } from "./calculate.js"; // This import is fine
 
 // Import routes
-import searchRoutes from "./routes/index.js"; 
+import searchRoutes from "./routes/index.js"; // This imports your routes
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,31 +15,35 @@ let allPokemonNames = [];
 
 // Function to fetch all Pokemon names once on server start
 async function fetchAllPokemonNames() {
-    try {
-        const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=1500");
-        allPokemonNames = response.data.results.map(p => p.name);
-        console.log(`Fetched ${allPokemonNames.length} Pokemon names.`);
-    } catch (error) {
-        console.error("Error fetching all Pokemon names:", error.message);
-    }
+  try {
+    const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=1500");
+    allPokemonNames = response.data.results.map((p) => p.name);
+    console.log(`Fetched ${allPokemonNames.length} Pokemon names.`);
+  } catch (error) {
+    console.error("Error fetching all Pokemon names:", error.message);
+  }
 }
 
 // Middleware setup
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 app.use((req, res, next) => {
-    req.app.locals.allPokemonNames = allPokemonNames; // Makes it available in all requests
-    next();
+  req.app.locals.allPokemonNames = allPokemonNames; // Makes it available in all requests
+  next();
 });
 
 // Use route modules
-app.use("/", searchRoutes); 
+app.use("/", searchRoutes); // This will handle all routes defined in searchRoutes, including the new detail route
+
+app.get("/about", (req, res) => {
+  res.render("about"); // Render the about.ejs file
+});
 
 // Start the server after fetching Pokemon names
 fetchAllPokemonNames().then(() => {
-    app.listen(port, () => {
-        console.log(`Server is running on http://localhost:${port}`);
-    });
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+  });
 });
