@@ -1,169 +1,315 @@
 /* General body and container styling if not already in style.css */
 body {
-    font-family: 'Poppins', sans-serif; /* Example font from your index.ejs */
-    background-color: #f8f9fa; /* Light background */
+    font-family: 'Poppins', sans-serif;
+    /* Example font from your index.ejs */
+    background-color: #e0f2f7;
+    /* Lighter, more inviting background */
     color: #333;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 960px; /* Limit width of content */
+    max-width: 1000px;
+    /* Slightly increase max-width for more content space */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 /* Pokemon Detail Card */
 .pokemon-detail-card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: .5rem;
-    overflow: hidden; /* Ensures content respects rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+    /* Subtle gradient */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.pokemon-detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-detail-image {
     max-width: 100%;
     height: auto;
-    max-height: 300px; /* Adjust as needed for image size */
-    object-fit: contain; /* Ensures image scales within bounds */
+    max-height: 350px;
+    /* Slightly larger image */
+    object-fit: contain;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eee;
+    border-radius: 1rem 1rem 0 0;
+    /* Apply radius to top corners */
 }
 
 /* Type Badges */
 .type-badge {
     display: inline-block;
-    padding: .25em .4em;
-    font-size: 75%;
+    padding: .4em .8em;
+    /* Increased padding */
+    font-size: 85%;
+    /* Slightly larger font */
     font-weight: 700;
     line-height: 1;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25rem;
+    border-radius: .5rem;
+    /* More rounded corners */
     color: #fff;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    margin-right: 8px;
+    /* More spacing between badges */
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    transition: transform 0.2s ease;
+}
+
+.type-badge:hover {
+    transform: translateY(-2px);
 }
 
 /* Type Colors - IMPORTANT: Include all 18 standard Pokémon types */
-.type-normal { background-color: #A8A77A; }
-.type-fire { background-color: #EE8130; }
-.type-water { background-color: #6390F0; }
-.type-grass { background-color: #7AC74C; }
-.type-electric { background-color: #F7D02C; }
-.type-ice { background-color: #96D9D6; }
-.type-fighting { background-color: #C22E28; }
-.type-poison { background-color: #A33EA1; }
-.type-ground { background-color: #E2BF65; }
-.type-flying { background-color: #A98FF3; }
-.type-psychic { background-color: #F95587; }
-.type-bug { background-color: #A6B91A; }
-.type-rock { background-color: #B6A136; }
-.type-ghost { background-color: #735797; }
-.type-dragon { background-color: #6F35FC; }
-.type-steel { background-color: #B7B7CE; }
-.type-dark { background-color: #705746; }
-.type-fairy { background-color: #D685AD; }
+.type-normal {
+    background-color: #A8A77A;
+}
+
+.type-fire {
+    background-color: #EE8130;
+}
+
+.type-water {
+    background-color: #6390F0;
+}
+
+.type-grass {
+    background-color: #7AC74C;
+}
+
+.type-electric {
+    background-color: #F7D02C;
+}
+
+.type-ice {
+    background-color: #96D9D6;
+}
+
+.type-fighting {
+    background-color: #C22E28;
+}
+
+.type-poison {
+    background-color: #A33EA1;
+}
+
+.type-ground {
+    background-color: #E2BF65;
+}
+
+.type-flying {
+    background-color: #A98FF3;
+}
+
+.type-psychic {
+    background-color: #F95587;
+}
+
+.type-bug {
+    background-color: #A6B91A;
+}
+
+.type-rock {
+    background-color: #B6A136;
+}
+
+.type-ghost {
+    background-color: #735797;
+}
+
+.type-dragon {
+    background-color: #6F35FC;
+}
+
+.type-steel {
+    background-color: #B7B7CE;
+}
+
+.type-dark {
+    background-color: #705746;
+}
+
+.type-fairy {
+    background-color: #D685AD;
+}
 
 /* Stats Section */
+/* Reverted stat-item to not be d-flex itself, as per original structure */
 .stat-item {
     font-weight: bold;
     /* Removed display:flex, justify-content-between, align-items-center to allow progress bar to be below */
 }
 
 .stat-name {
-    text-transform: capitalize; /* Capitalize stat names */
-    display: block; /* Ensure stat name takes its own line above value/progress */
+    text-transform: capitalize;
+    display: block;
+    /* Ensure stat name takes its own line above value/progress */
     margin-bottom: 2px;
+    font-size: 0.95em;
+    color: #555;
 }
 
 .stat-value {
-    display: block; /* Ensure stat value takes its own line */
+    display: block;
+    /* Ensure stat value takes its own line */
     font-size: 1.1em;
-    color: #007bff; /* Example color for value */
+    color: #007bff;
+    font-weight: 600;
 }
 
 .progress {
-    height: 10px;
-    background-color: #e9ecef; /* Lighter background for empty part of bar */
+    height: 12px;
+    /* Slightly taller progress bar */
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    /* Ensure progress bar respects radius */
 }
 
 .progress-bar {
-    background-color: #007bff; /* Blue progress bar */
-    /* You might want to customize colors based on stat value or type later */
+    background: linear-gradient(to right, #007bff, #0056b3);
+    /* Blue gradient for progress */
+    transition: width 0.7s ease-out;
+    /* Smooth transition for width change */
 }
 
 /* Headings for Weaknesses/Resistances */
+h1.card-title {
+    font-size: 2.5rem;
+    /* Larger main title */
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+h1.card-title small {
+    font-size: 60%;
+    color: #6c757d;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.5rem;
+}
+
 h2.text-warning {
-    color: #ffc107 !important; /* Bootstrap warning color */
-}
-
-h5.text-danger {
-    color: #dc3545 !important; /* Bootstrap danger color */
-}
-
-h5.text-warning {
-    color: #ffc107 !important; /* Bootstrap warning color */
+    color: #ffc107 !important;
 }
 
 h2.text-success {
-    color: #28a745 !important; /* Bootstrap success color */
+    color: #28a745 !important;
+}
+
+h5 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+h5.text-danger {
+    color: #dc3545 !important;
+}
+
+h5.text-warning {
+    color: #ffc107 !important;
 }
 
 h5.text-success {
-    color: #28a745 !important; /* Bootstrap success color */
+    color: #28a745 !important;
 }
 
 h5.text-info {
-    color: #17a2b8 !important; /* Bootstrap info color */
+    color: #17a2b8 !important;
 }
 
 h5.text-primary {
-    color: #007bff !important; /* Bootstrap primary color */
+    color: #007bff !important;
 }
 
 /* Additional layout adjustments if needed */
 .d-flex.flex-column.justify-content-center.align-items-center.p-3 {
-    padding: 1.5rem !important; /* Override default padding if necessary */
+    padding: 2rem !important;
+    /* Increased padding */
+    background-color: #f0f0f0;
+    /* Light background for the image/stats column */
+    border-right: 1px solid #eee;
+}
+
+.card-body {
+    padding: 2rem;
+    /* Increased padding for the main content area */
 }
 
 .row.w-100.px-3 {
     width: 100% !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
 }
 
 /* Navbar (from your index.ejs, but ensure it's consistent if shared) */
 .pokemon-navbar {
-    background-color: #d32f2f; /* Red */
-    padding: 0.5rem 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #d32f2f;
+    /* Red */
+    padding: 0.75rem 1rem;
+    /* Increased padding */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    /* Stronger shadow */
 }
 
 .navbar-brand {
     color: #fff;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    /* Larger brand text */
     display: flex;
     align-items: center;
 }
 
 .navbar-brand:hover {
-    color: #ffe082; /* Lighter yellow on hover */
+    color: #ffe082;
+    /* Lighter yellow on hover */
 }
 
 .navbar-logo {
-    height: 30px;
-    margin-right: 10px;
+    height: 35px;
+    /* Larger logo */
+    margin-right: 12px;
 }
 
 .nav-link {
     color: #fff !important;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0.5rem 1rem;
+    /* Added padding for better click area */
+    border-radius: 0.3rem;
 }
 
 .nav-link:hover,
 .nav-link.active {
     color: #ffe082 !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 .container-max-width {
-    max-width: 1200px; /* Adjust as needed */
+    max-width: 1300px;
+    /* Adjust as needed */
 }
 
 /* Feature Boxes (from index.ejs, keeping consistent styling) */
@@ -173,15 +319,81 @@ h5.text-primary {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    /* Larger icon */
     color: #d32f2f;
     margin-bottom: 15px;
+}
+
+/* Custom button styling */
+.btn-primary {
+    background-color: #d32f2f;
+    /* Red from navbar */
+    border-color: #d32f2f;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #e53935;
+    /* Slightly darker red */
+    border-color: #e53935;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .pokemon-detail-card .row.g-0 {
+        flex-direction: column;
+        /* Stack columns on small screens */
+    }
+
+    .d-flex.flex-column.justify-content-center.align-items-center.p-3 {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        /* Add border to bottom when stacked */
+        padding-bottom: 1rem !important;
+    }
+
+    .pokemon-detail-image {
+        max-height: 250px;
+        /* Adjust image size for smaller screens */
+    }
+
+    .row.w-100.px-3 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+
+    .col-12.col-sm-6.mb-2 {
+        text-align: center;
+        /* Center align stats on small screens */
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    h1.card-title {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
 }
