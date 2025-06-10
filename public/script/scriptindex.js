@@ -78,7 +78,7 @@ pokemonSearchInput.addEventListener('input', () => {
             searchResults.style.display = 'none'; // Hide results on error
             searchResults.innerHTML = ''; // Ensure it's empty
         }
-    }, 200);
+    }, 50);
 });
 
 // Clear search input and hide results when clicking on the 'X' area
