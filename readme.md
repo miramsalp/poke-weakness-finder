@@ -41,7 +41,7 @@ Make sure you have the following installed:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/miramsalp/poke-weakness-finder.git](https://github.com/miramsalp/poke-weakness-finder.git)
+    git clone https://github.com/miramsalp/poke-weakness-finder.git
     cd poke-weakness-finder
     ```
 
