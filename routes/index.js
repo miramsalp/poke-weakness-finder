@@ -13,10 +13,14 @@ router.get('/', (req, res) => {
 router.get('/pokemon/:name', async (req, res) => {
     const pokemonName = req.params.name.toLowerCase();
     try {
+        // Fetch Pokémon data (supports specific forms like rotom-heat)
         const pokemonResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-        const speciesResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`);
-
         const pokemonData = pokemonResponse.data;
+
+        // Use the species URL from pokemonData to fetch species-specific info
+        // This is crucial for forms like 'rotom-heat' which belong to the 'rotom' species.
+        const speciesUrl = pokemonData.species.url;
+        const speciesResponse = await axios.get(speciesUrl);
         const speciesData = speciesResponse.data;
 
         // Get description (flavor text)
@@ -64,7 +68,8 @@ router.get('/pokemon/:name', async (req, res) => {
 // SEARCH ENDPOINT (MODIFIED)
 router.get('/search-pokemon', async (req, res) => {
     const query = req.query.q ? req.query.q.toLowerCase() : '';
-    const allPokemonNames = req.app.locals.allPokemonNames || []; // Access the global list
+    // Ensure allPokemonNames includes all forms you want to be searchable
+    const allPokemonNames = req.app.locals.allPokemonNames || []; 
 
     if (!query) {
         return res.json([]);
